@@ -2,7 +2,11 @@
 
 <head>
     @include('includes.common-css')
-    {{HTML::script(asset("/public/js/task/all.js"))}}
+    {{HTML::style(asset("/public/css/jquery.dataTables.css"))}}
+
+    @include('includes.common-top-js')
+    {{HTML::script(asset("/public/js/jquery.dataTables.min.js"))}}
+    {{HTML::script(asset("/public/js/site/task/all.js"))}}
 </head>
 
 <body>

@@ -12,21 +12,21 @@ function loadTasks(page){
 
 function tasksLoaded(tasks){
 
-    $("#productlist").html("");
+    $("#tasklist").html("");
 
     if(tasks!=undefined && tasks.length>0){
 
-        var productTable = getTaskTable(tasks);
+        var taskTable = getTaskTable(tasks);
 
         $("#tasklist").html('<h4>Listing your tasks</h4>');
 
-        $("#tasklist").append(productTable);
+        $("#tasklist").append(taskTable);
 
         $("#table_tasks").dataTable();
 
         var str = '<input type="button" name="btnRemoveTasks" value="Remove tasks"/>';
 
-        $("#similarproductlist").append(str);
+        $("#tasklist").append(str);
 
         $(".remove_task").click(function(){
             var id = $(this).attr('rel');
@@ -37,7 +37,7 @@ function tasksLoaded(tasks){
 
     }
     else
-        $("#tasklist").html("<h3 class='noproducts'>No products available</h3>");
+        $("#tasklist").html("<h3 class='noproducts'>No tasks created</h3>");
 }
 
 function removeTask(id){
@@ -76,7 +76,11 @@ function getTaskTable(tasks){
         table += '<td>' + task.name + '</td>';
         table += '<td>' + task.task_type + '</td>';
         table += '<td>' + task.description + '</td>';
-        table += '<td><a target="_blank" href="' + root + '/view-task/' + task.id + '">View</a> &nbsp;&nbsp; <span class="link remove_task" rel="' + task.id + '">Remove</span></td>';
+        table += '<td>';
+        table += '<a target="_blank" href="' + root + '/task-items/' + task.id + '">Items</a>';
+        table += '<a target="_blank" href="' + root + '/view-task/' + task.id + '">View</a>';
+        table += '&nbsp;&nbsp; <span class="link remove_task" rel="' + task.id + '">Remove</span>';
+        table += '</td>';
 
         table += '</tr>';
     }

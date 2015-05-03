@@ -9,7 +9,7 @@ function createTask(){
 
         var data = $("#frmcreate").serialize();
 
-        ajaxCall(root + '/create-task', 'post', data, taskCreated);
+        ajaxCall(root + '/save-task', 'post', data, taskCreated);
     }
 }
 

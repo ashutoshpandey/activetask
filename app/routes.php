@@ -25,12 +25,18 @@ Route::get('/account-activated', 'AuthenticationController@accountActivated');
 /**************** task methods ******************/
 
 Route::get('/create-task', 'TaskController@create');
+Route::post('/save-task', 'TaskController@save');
 Route::get('/find-task/{id}', 'TaskController@find');
 Route::get('/update-task', 'TaskController@update');
 Route::get('/remove-task/{id}', 'TaskController@remove');
 Route::get('/all-tasks', 'TaskController@all');
 
+Route::get('/task-items/{id}', 'TaskController@taskItems');
+Route::post('/save-task-item', 'TaskController@saveTaskItem');
+Route::get('/remove-task-item/{id}', 'TaskController@removeTaskItem');
+Route::post('/remove-task-items', 'TaskController@removeTaskItems');
+
 Route::get('/data-all-tasks', 'TaskController@allTasks');
-Route::get('/data-all-task-items/{id}', 'TaskController@allTaskItems');
+Route::get('/data-all-task-items', 'TaskController@allTaskItems');
 
 /**************** task methods ******************/

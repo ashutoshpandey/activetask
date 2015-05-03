@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'ashutoshpandey.codes@gmail.com',
+	'username' => 'ashutoshpandey.codes',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => 'g1rappa4ra4ra',
+	'password' => 'password',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -1,6 +1,8 @@
 <html>
 <head>
     @include('includes.common-css')
+
+    @include('includes.common-top-js')
     {{HTML::script(asset("/public/js/site/task/create.js"))}}
 </head>
 

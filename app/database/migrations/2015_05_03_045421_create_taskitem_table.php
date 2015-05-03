@@ -19,8 +19,9 @@ class CreateTaskitemTable extends Migration {
             $table->unsignedInteger('task_id');
             $table->unsignedInteger('user_id');         // added by
 
-            $table->string('name', 255);
-            $table->string('description', 1000);
+            $table->string('content', 1000);
+            $table->string('assigned_to', 255);
+            $table->unsignedInteger('assigned_to_id');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->string('status', 20);

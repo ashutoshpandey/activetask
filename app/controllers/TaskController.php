@@ -9,12 +9,13 @@ class TaskController extends BaseController {
 	public function save()
 	{
         $user_id = Session::get('user');
+$user_id = 14;
+        $group_id = Input::get('group_id');
 
         $name = Input::get('name');
-        $group_id = Input::get('group_id');
         $task_type = Input::get('task_type');
         $description = Input::get('description');
-        $allow_adding_task_item = Input::get('allow_adding_task_item');
+        $others_can_add = Input::get('others_can_add');
         $start_date = Input::get('start_date');
         $end_date = Input::get('end_date');
 
@@ -22,11 +23,15 @@ class TaskController extends BaseController {
 
         $task->name = $name;
         $task->user_id = $user_id;
-        $task->group_id = $group_id;
+
+        if(isset($group_id))
+            $task->group_id = $group_id;
+
         $task->task_type = $task_type;
-        $task->allow_adding_task_item = $allow_adding_task_item;
-        $task->start_date = $start_date;
-        $task->end_date = $end_date;
+        $task->description = $description;
+        $task->others_can_add = $others_can_add;
+        $task->start_date = date('Y-m-d h:i:s', strtotime($start_date));
+        $task->end_date = date('Y-m-d h:i:s', strtotime($end_date));
         $task->status = 'active';
 
         $task->save();
@@ -116,40 +121,27 @@ class TaskController extends BaseController {
         return View::make('tasks.all')->with('tasks', $tasks)->with('found', $found);
     }
 
-    public function addTaskItem($id){
-
-        $task = Task::find($id);
-
-        if(isset($task)){
-            Session::put('add_task_item_id', $id);
-
-            return View::make('task.add-task-item')->with('task', $task)->with('found', true);
-        }
-        else
-            return View::make('task.add-task-item')->with('found', false);
-    }
-
     public function saveTaskItem()
     {
         $user_id = Session::get('user');
-        $task_id = Session::get('add_task_item_id');
-
-        $name = Input::get('name');
-        $description = Input::get('description');
+        $task_id = Session::get('task_id');
+$user_id = 14;
+        $assigned_to = Input::get('assigned_to');
+        $content = Input::get('content');
         $start_date = Input::get('start_date');
         $end_date = Input::get('end_date');
 
-        $task = new Task();
+        $taskItem = new TaskItem();
 
-        $task->name = $name;
-        $task->user_id = $user_id;
-        $task->task_id = $task_id;
-        $task->description = $description;
-        $task->start_date = $start_date;
-        $task->end_date = $end_date;
-        $task->status = 'active';
+        $taskItem->assigned_to = $assigned_to;
+        $taskItem->user_id = $user_id;
+        $taskItem->task_id = $task_id;
+        $taskItem->content = $content;
+        $taskItem->start_date = $start_date;
+        $taskItem->end_date = $end_date;
+        $taskItem->status = 'active';
 
-        $task->save();
+        $taskItem->save();
 
         echo 'created';
     }
@@ -160,12 +152,14 @@ class TaskController extends BaseController {
 
         if(isset($task)){
 
+            Session::put('task_id', $id);
+
             $taskItems = TaskItem::where('status', '=', 'active')->where('task_id', '=', $id)->get();
 
-            return $taskItems;
+            return View::make('tasks.task-items')->with('taskItems', $taskItems);
         }
         else
-            return null;
+            return Redirect::to('/');
     }
 
     public function removeTaskItem($id)
@@ -188,23 +182,50 @@ class TaskController extends BaseController {
     public function allTasks()
     {
         $user_id = Session::get('user');
-
+$user_id = 14;
         $tasks = Task::where('status', '=', 'active')->where('user_id', '=', $user_id)->get();
 
         if(isset($tasks) && count($tasks)>0)
             return $tasks;
         else
-            return null;
+            return array();
     }
 
-    public function allTaskItems($id)
+    public function allTaskItems()
     {
-        $taskItems = TaskItem::where('status', '=', 'active')->where('task_id', '=', $id)->get();
+        $task_id = Session::get('task_id');
 
-        if(isset($taskItems) && count($taskItems)>0)
-            return $taskItems;
+        if(isset($task_id)){
+            $taskItems = TaskItem::where('status', '=', 'active')->where('task_id', '=', $task_id)->get();
+
+            if(isset($taskItems) && count($taskItems)>0)
+                return $taskItems;
+            else
+                return array();
+        }
         else
-            return null;
+            return array();
     }
 
+    public function removeTaskItems()
+    {
+        $ids = Input::get('ids'); // comma separated ids, to be removed
+
+        if (isset($ids)) {
+
+            $ar_ids = explode(',', $ids);
+
+            if(isset($ar_ids)){
+
+                foreach($ar_ids as $id){
+
+                    TaskItem::where('id', '=', $id)->delete();
+                }
+
+                echo 'removed';
+            }
+        }
+        else
+            echo 'invalid';
+    }
 }
