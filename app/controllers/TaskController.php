@@ -3,7 +3,7 @@
 class TaskController extends BaseController {
 
     public function create(){
-        return View::make('tasks.create');
+        return View::make('task.create');
     }
 
 	public function save()
@@ -56,10 +56,10 @@ $user_id = 14;
         if(isset($task)){
             Session::put('edit_task_id', $id);
 
-            return View::make('tasks.edit')->with('task', $task)->with('found', true);
+            return View::make('task.edit')->with('task', $task)->with('found', true);
         }
         else
-            return View::make('tasks.edit')->with('found', false);
+            return View::make('task.edit')->with('found', false);
     }
 
     public function update()
@@ -118,7 +118,7 @@ $user_id = 14;
 
         $found = isset($tasks) && count($tasks)>0;
 
-        return View::make('tasks.all')->with('tasks', $tasks)->with('found', $found);
+        return View::make('task.all')->with('tasks', $tasks)->with('found', $found);
     }
 
     public function saveTaskItem()
@@ -156,7 +156,7 @@ $user_id = 14;
 
             $taskItems = TaskItem::where('status', '=', 'active')->where('task_id', '=', $id)->get();
 
-            return View::make('tasks.task-items')->with('taskItems', $taskItems);
+            return View::make('task.task-items')->with('taskItems', $taskItems);
         }
         else
             return Redirect::to('/');

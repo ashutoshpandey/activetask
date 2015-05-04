@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\xampp1.8\htdocs\activetask\public\js\site\task\list-task-items.js" afterPath="$PROJECT_DIR$/public/js/site/task/task-items.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2015_05_03_045421_create_taskitem_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2015_05_03_045421_create_taskitem_table.php" />
+      <change type="MOVED" beforePath="C:\xampp1.8\htdocs\activetask\app\views\tasks\all.blade.php" afterPath="$PROJECT_DIR$/app/views/task/all.blade.php" />
+      <change type="MOVED" beforePath="C:\xampp1.8\htdocs\activetask\app\views\tasks\create.blade.php" afterPath="$PROJECT_DIR$/app/views/task/create.blade.php" />
+      <change type="MOVED" beforePath="C:\xampp1.8\htdocs\activetask\app\views\tasks\edit.blade.php" afterPath="$PROJECT_DIR$/app/views/task/edit.blade.php" />
+      <change type="MOVED" beforePath="C:\xampp1.8\htdocs\activetask\app\views\tasks\task-items.blade.php" afterPath="$PROJECT_DIR$/app/views/task/task-items.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2015_04_03_050040_create_user_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2015_04_03_050040_create_user_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/TaskController.php" afterPath="$PROJECT_DIR$/app/controllers/TaskController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/TaskItem.php" afterPath="$PROJECT_DIR$/app/models/TaskItem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tasks/all.blade.php" afterPath="$PROJECT_DIR$/app/views/tasks/all.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/site/task/all.js" afterPath="$PROJECT_DIR$/public/js/site/task/all.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/site/common.css" afterPath="$PROJECT_DIR$/public/css/site/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tasks/create.blade.php" afterPath="$PROJECT_DIR$/app/views/tasks/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/site/task/create.js" afterPath="$PROJECT_DIR$/public/js/site/task/create.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/mail.php" afterPath="$PROJECT_DIR$/app/config/mail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User.php" afterPath="$PROJECT_DIR$/app/models/User.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -87,13 +84,13 @@
     <file path="/password-sent.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430635881237" ignored="false" />
     <file path="/register.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430648269340" ignored="false" />
     <file path="/edit.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430638776492" ignored="false" />
-    <file path="/create.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430667528683" ignored="false" />
-    <file path="/create.js" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430638962250" ignored="false" />
+    <file path="/create.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430703005956" ignored="false" />
+    <file path="/create.js" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430703236650" ignored="false" />
     <file path="/user-menu.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430639392711" ignored="false" />
     <file path="/user-section.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430639841557" ignored="false" />
     <file path="/UserController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430639695628" ignored="false" />
     <file path="/common-css.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430640532455" ignored="false" />
-    <file path="/all.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430667424803" ignored="false" />
+    <file path="/all.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430706633481" ignored="false" />
     <file path="/common.css" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430667585122" ignored="false" />
     <file path="/common-top-js.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430648024061" ignored="false" />
     <file path="/Task.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430640757717" ignored="false" />
@@ -104,9 +101,14 @@
     <file path="/usermail.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430652903458" ignored="false" />
     <file path="/registered.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430664783686" ignored="false" />
     <file path="/account-activated.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430665798603" ignored="false" />
-    <file path="/Dummy.txt" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430666048769" ignored="false" />
+    <file path="/Dummy.txt" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430702283858" ignored="false" />
     <file path="/task-items.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430668731363" ignored="false" />
     <file path="/task-items.js" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430669507469" ignored="false" />
+    <file path="/GroupController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430706680605" ignored="false" />
+    <file path="/group-members.js" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430704319044" ignored="false" />
+    <file path="/User.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430704660151" ignored="false" />
+    <file path="/UserGroup.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430705528761" ignored="false" />
+    <file path="/GroupMember.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430705498201" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,10 +128,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <file leaf-file-name="GroupController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/GroupController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="33" selection-start="1359" selection-end="1359" vertical-scroll-proportion="-14.966666">
+            <state line="90" column="31" selection-start="2033" selection-end="2033" vertical-scroll-proportion="-1.1584039">
               <folding />
             </state>
           </provider>
@@ -138,61 +140,16 @@
       <file leaf-file-name="TaskController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/TaskController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="228" column="27" selection-start="5688" selection-end="5688" vertical-scroll-proportion="-24.766666">
+            <state line="209" column="0" selection-start="5242" selection-end="5242" vertical-scroll-proportion="-19.166666">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task-items.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/tasks/task-items.blade.php">
+      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="33" selection-start="456" selection-end="456" vertical-scroll-proportion="15.133333">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2015_05_03_045421_create_taskitem_table.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_05_03_045421_create_taskitem_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="51" selection-start="268" selection-end="268" vertical-scroll-proportion="-9.1">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/tasks/create.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="7" selection-start="1926" selection-end="1926" vertical-scroll-proportion="-25.466667">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="task-items.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/js/site/task/task-items.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="0" selection-start="2969" selection-end="2969" vertical-scroll-proportion="0.65694284">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="all.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/site/task/all.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="34" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="all.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/tasks/all.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="115" selection-end="115" vertical-scroll-proportion="-3.5">
+            <state line="46" column="51" selection-start="2040" selection-end="2040" vertical-scroll-proportion="-12.166667">
               <folding />
             </state>
           </provider>
@@ -216,22 +173,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/js/site/user/register.js" />
-        <option value="$PROJECT_DIR$/app/views/authentication/registered.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/authentication/account-activated.blade.php" />
-        <option value="$PROJECT_DIR$/app/controllers/AuthenticationController.php" />
-        <option value="$PROJECT_DIR$/app/config/mail.php" />
-        <option value="$PROJECT_DIR$/public/js/site/task/create.js" />
-        <option value="$PROJECT_DIR$/app/views/tasks/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/tasks/all.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/site/common.css" />
         <option value="$PROJECT_DIR$/app/models/TaskItem.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_05_03_045421_create_taskitem_table.php" />
         <option value="$PROJECT_DIR$/app/views/tasks/task-items.blade.php" />
         <option value="$PROJECT_DIR$/public/js/site/task/all.js" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/public/js/site/task/task-items.js" />
+        <option value="$PROJECT_DIR$/app/views/groups/create.blade.php" />
         <option value="$PROJECT_DIR$/app/controllers/TaskController.php" />
+        <option value="$PROJECT_DIR$/public/js/site/group/create.js" />
+        <option value="$PROJECT_DIR$/public/js/site/group/group-members.js" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_04_03_050040_create_user_table.php" />
+        <option value="$PROJECT_DIR$/app/models/User.php" />
+        <option value="$PROJECT_DIR$/app/models/GroupMember.php" />
+        <option value="$PROJECT_DIR$/app/models/UserGroup.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/views/group/all.blade.php" />
+        <option value="$PROJECT_DIR$/app/controllers/GroupController.php" />
       </list>
     </option>
   </component>
@@ -401,6 +358,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="group" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activetask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activetask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -499,7 +482,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tasks" />
+              <option name="myItemId" value="task" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -522,6 +505,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="includes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activetask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activetask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="group" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -700,16 +705,16 @@
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="C:/cakephp-cakephp-4b9e390" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp1.8\htdocs\activetask\public\css" />
-      <recent name="C:\xampp1.8\htdocs\activetask\app\views\tasks" />
-      <recent name="C:\xampp1.8\htdocs\activetask\app\views\emails" />
-      <recent name="C:\xampp1.8\htdocs\activetask\app\controllers" />
+      <recent name="C:\xampp1.8\htdocs\activetask\app\views\group" />
       <recent name="C:\xampp1.8\htdocs\activetask\app\models" />
+      <recent name="C:\xampp1.8\htdocs\activetask\public\js\site\group" />
+      <recent name="C:\xampp1.8\htdocs\activetask\app\controllers" />
+      <recent name="C:\xampp1.8\htdocs\activetask\app\views\groups" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp1.8\htdocs\activetask\public\js\site\user" />
@@ -757,9 +762,10 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2457265" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24839744" sideWeight="0.6700565" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -768,7 +774,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -835,105 +840,19 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/authentication/account-activated.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="52" selection-start="140" selection-end="140" vertical-scroll-proportion="-5.6" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/AuthenticationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="14" selection-start="2532" selection-end="2532" vertical-scroll-proportion="-13.166667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/mail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="26" selection-start="2821" selection-end="2821" vertical-scroll-proportion="0.2031439">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/jquery.dataTables.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/site/task/create.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="30" selection-start="199" selection-end="199" vertical-scroll-proportion="0.26954493">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/site/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="24" selection-start="355" selection-end="355" vertical-scroll-proportion="0.53908986">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tasks/all.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="115" selection-end="115" vertical-scroll-proportion="-3.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/TaskItem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="14" selection-start="21" selection-end="21" vertical-scroll-proportion="0.050785974">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tasks/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="7" selection-start="1926" selection-end="1926" vertical-scroll-proportion="-25.466667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_05_03_045229_create_tasks_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_05_03_045421_create_taskitem_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="51" selection-start="268" selection-end="268" vertical-scroll-proportion="-9.1">
-          <folding />
-        </state>
+        <state line="14" column="51" selection-start="268" selection-end="268" vertical-scroll-proportion="-9.1" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/site/task/all.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="34" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="22" column="34" selection-start="415" selection-end="415" vertical-scroll-proportion="0.5344224" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tasks/task-items.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/views/task/task-items.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="33" selection-start="456" selection-end="456" vertical-scroll-proportion="15.133333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="33" selection-start="1359" selection-end="1359" vertical-scroll-proportion="-14.966666">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/TaskController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="27" selection-start="5688" selection-end="5688" vertical-scroll-proportion="-24.766666">
           <folding />
         </state>
       </provider>
@@ -941,6 +860,90 @@
     <entry file="file://$PROJECT_DIR$/public/js/site/task/task-items.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="120" column="0" selection-start="2969" selection-end="2969" vertical-scroll-proportion="0.65694284">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/group/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="47" selection-start="137" selection-end="137" vertical-scroll-proportion="-3.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/site/group/create.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_04_03_050040_create_user_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="5" selection-start="703" selection-end="703" vertical-scroll-proportion="0.7110036">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/site/group/group-members.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="38" selection-start="2643" selection-end="2643" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="10" selection-start="17" selection-end="17" vertical-scroll-proportion="0.050785974">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/GroupMember.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="1" selection-start="277" selection-end="277" vertical-scroll-proportion="-11.9">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/UserGroup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="42" selection-start="346" selection-end="346" vertical-scroll-proportion="0.5078597">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Task.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="1" selection-start="259" selection-end="259" vertical-scroll-proportion="0.43168077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/TaskController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="209" column="0" selection-start="5242" selection-end="5242" vertical-scroll-proportion="-19.166666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/group/all.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="30" selection-start="329" selection-end="329" vertical-scroll-proportion="0.33010882">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="51" selection-start="2040" selection-end="2040" vertical-scroll-proportion="-12.166667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/GroupController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="31" selection-start="2033" selection-end="2033" vertical-scroll-proportion="-1.1584039">
           <folding />
         </state>
       </provider>

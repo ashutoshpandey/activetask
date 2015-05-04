@@ -1,0 +1,170 @@
+<?php
+
+class GroupController extends BaseController {
+
+    public function create(){
+        return View::make('group.create');
+    }
+
+    public function save()
+    {
+        $user_id = Input::get('user');
+
+        $name = Input::get('name');
+
+        $userGroup = new UserGroup();
+
+        $userGroup->name = $name;
+        $userGroup->user_id = $user_id;
+        $userGroup->status = 'active';
+
+        $userGroup->save();
+
+        echo 'created';
+    }
+
+    public function find($id)
+    {
+        $userGroup = UserGroup::find($id);
+
+        if(isset($userGroup))
+            return $userGroup;
+        else
+            return null;
+    }
+
+    public function edit($id){
+
+        $userGroup = UserGroup::find($id);
+
+        if(isset($userGroup)){
+            Session::put('edit_user_group_id', $id);
+
+            return View::make('UserGroup.edit')->with('UserGroup', $userGroup)->with('found', true);
+        }
+        else
+            return View::make('UserGroup.edit')->with('found', false);
+    }
+
+    public function update()
+    {
+        $group_id = Session::get('edit_user_group_id');
+
+        $userGroup = UserGroup::find($group_id);
+
+        if(isset($userGroup)){
+            $name = Input::get('name');
+
+            $userGroup->name = $name;
+            $userGroup->status = 'active';
+
+            $userGroup->save();
+
+            echo 'updated';
+        }
+        else
+            echo 'invalid';
+    }
+
+    public function all()
+    {
+        return View::make('group.all');
+    }
+
+    public function allGroups()
+    {
+        $userGroups = UserGroup::where('status', '=', 'active')->get();
+
+        return $userGroups;
+    }
+
+    public function allGroupMembers()
+    {
+        $group_id = Session::get('group_id');
+
+        if(isset($group_id)){
+            $groupMembers = GroupMember::where('status', '=', 'active')->where('group_id', '=', $group_id)->get();
+
+            if(isset($groupMembers) && count($groupMembers)>0)
+                return $groupMembers;
+            else
+                return array();
+        }
+        else
+            return array();
+    }
+
+    public function removeGroup($id)
+    {
+        $userGroup = UserGroup::find($id);
+
+        if(isset($userGroup)){
+            $userGroup->status = 'removed';
+
+            $userGroup->save();
+
+            echo 'removed';
+        }
+        else
+            echo 'invalid';
+    }
+
+    public function removeGroups()
+    {
+        $ids = Input::get('ids'); // comma separated ids, to be removed
+
+        if (isset($ids)) {
+
+            $ar_ids = explode(',', $ids);
+
+            if(isset($ar_ids)){
+
+                foreach($ar_ids as $id){
+
+                    UserGroup::where('id', '=', $id)->delete();
+                }
+
+                echo 'removed';
+            }
+        }
+        else
+            echo 'invalid';
+    }
+
+    public function removeGroupMember($id)
+    {
+        $groupMember = GroupMember::find($id);
+
+        if(isset($groupMember)){
+            $groupMember->status = 'removed';
+
+            $groupMember->save();
+
+            echo 'removed';
+        }
+        else
+            echo 'invalid';
+    }
+
+    public function removeGroupMembers()
+    {
+        $ids = Input::get('ids'); // comma separated ids, to be removed
+
+        if (isset($ids)) {
+
+            $ar_ids = explode(',', $ids);
+
+            if(isset($ar_ids)){
+
+                foreach($ar_ids as $id){
+
+                    TaskItem::where('id', '=', $id)->delete();
+                }
+
+                echo 'removed';
+            }
+        }
+        else
+            echo 'invalid';
+    }
+}
