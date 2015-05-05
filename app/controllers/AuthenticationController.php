@@ -60,7 +60,7 @@ class AuthenticationController extends BaseController {
                 echo 'removed';
         }
         else
-            echo 'valid';
+            echo 'wrong';
 	}
 
     public function isDuplicateUser($email)
@@ -181,5 +181,12 @@ class AuthenticationController extends BaseController {
         }
         else
             return Redirect::to('/');
+    }
+
+    public function logout(){
+
+        Session::flush();
+
+        return Redirect::to('/');
     }
 }

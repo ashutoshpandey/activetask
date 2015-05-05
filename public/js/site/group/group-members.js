@@ -2,31 +2,41 @@ $(function(){
 
     loadGroupMembers(1);
 
-    $("input[name='assigned_to']").click(function(){
-        var type = $(this).val();
-
-        if(type=='self'){
-            $('.assigned-to-name').hide();
-            $('.assigned-to-user').hide();
-        }
-        else if(type=='user'){
-            $('.assigned-to-name').hide();
-            $('.assigned-to-user').show();
-        }
-        else if(type=='name'){
-            $('.assigned-to-name').show();
-            $('.assigned-to-user').hide();
-        }
-    });
-
-    $("input[name='btnAddGroupMember']").click(addGroupMember);
+    $("input[name='btnFind']").click(findGroupMember);
 });
 
-function addGroupMember(){
+function findGroupMember(){
 
-    var data = $("#frmGroupMember").serialize();
+    var email = $("input[name='email']").val();
+    var data = 'email=' + email;
 
-    ajaxCall(root + '/save-group-member', 'post', data, groupMemberAdded);
+    jsonCall(root + '/find-group-member-by-email', 'get', data, findResult);
+}
+
+function findResult(result){
+
+    if(result.found=='yes'){
+
+        if(result.user.status=='active'){
+            var str = "Name = " + result.user.first_name + " " + result.user.last_name + "<br/>";
+            str = str + "Location = " + result.user.country + "<br/>";
+            str = str + "<span class='link lnkaddmember' rel='" + result.user.id + "'>Add</span>";
+
+            $('.findResult').html(str);
+
+            $('.lnkaddmember').click(function(){
+                var id = $(this).attr('rel');
+                var data = 'id=' + id;
+
+                jsonCall(root + '/save-group-member', 'get', data, groupMemberAdded);
+            });
+        }
+        else
+            $('.findResult').html('The user is not active');
+    }
+    else{
+        $('.findResult').html('No member found');
+    }
 }
 
 function groupMemberAdded(result){
@@ -37,7 +47,7 @@ function loadGroupMembers(page){
 
     var data = 'page=1&count=20';
 
-    jsonCall(root + '/data-all-group-members', 'get', data, groupMembersLoaded);
+    jsonCall(root + '/all-group-members', 'get', data, groupMembersLoaded);
 }
 
 function groupMembersLoaded(groupMembers){
@@ -89,6 +99,7 @@ function getGroupMembersTable(groupMembers){
     table += '<td></td>';
     table += '<td>Name</td>';
     table += '<td>Email</td>';
+    table += '<td>Country</td>';
     table += '<td>Action</td>';
 
     table += '</tr>';
@@ -104,9 +115,10 @@ function getGroupMembersTable(groupMembers){
         table += '<td><input type="checkbox" name="chkgroupmember" rel="' + groupMember.id + '"/></td>';
         table += '<td>' + groupMember.user.first_name + ' ' + groupMember.user.last_name + '</td>';
         table += '<td>' + groupMember.user.email + '</td>';
+        table += '<td>' + groupMember.user.country + '</td>';
         table += '<td>';
         table += '<a target="_blank" href="' + root + '/view-task/' + groupMember.user.id + '">View</a>';
-        table += '&nbsp;&nbsp; <span class="link remove_task_item" rel="' + groupMember.id + '">Remove</span>';
+        table += '&nbsp;&nbsp; <span class="link remove_group_member" rel="' + groupMember.id + '">Remove</span>';
         table += '</td>';
 
         table += '</tr>';

@@ -9,7 +9,7 @@ class TaskController extends BaseController {
 	public function save()
 	{
         $user_id = Session::get('user');
-$user_id = 14;
+
         $group_id = Input::get('group_id');
 
         $name = Input::get('name');
@@ -125,7 +125,7 @@ $user_id = 14;
     {
         $user_id = Session::get('user');
         $task_id = Session::get('task_id');
-$user_id = 14;
+
         $assigned_to = Input::get('assigned_to');
         $content = Input::get('content');
         $start_date = Input::get('start_date');
@@ -182,7 +182,7 @@ $user_id = 14;
     public function allTasks()
     {
         $user_id = Session::get('user');
-$user_id = 14;
+
         $tasks = Task::where('status', '=', 'active')->where('user_id', '=', $user_id)->get();
 
         if(isset($tasks) && count($tasks)>0)

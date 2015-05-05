@@ -91,8 +91,9 @@ function getTaskItemsTable(taskItems){
 
     table += '<td></td>';
     table += '<td>Content</td>';
-    table += '<td>Start</td>';
-    table += '<td>End</td>';
+    table += '<td>Date</td>';
+    table += '<td>Assigned To</td>';
+    table += '<td>Status</td>';
     table += '<td>Action</td>';
 
     table += '</tr>';
@@ -107,8 +108,9 @@ function getTaskItemsTable(taskItems){
 
         table += '<td><input type="checkbox" name="chktaskitem" rel="' + taskItem.id + '"/></td>';
         table += '<td>' + taskItem.content + '</td>';
-        table += '<td>' + taskItem.start_date + '</td>';
-        table += '<td>' + taskItem.end_date + '</td>';
+        table += '<td>' + convertDateFormat(taskItem.start_date) + '  /  ' + convertDateFormat(taskItem.end_date) + '</td>';
+        table += '<td>' + taskItem.assigned_to + '</td>';
+        table += '<td>' + taskItem.status + '</td>';
         table += '<td>';
         table += '<a target="_blank" href="' + root + '/view-task/' + taskItem.id + '">View</a>';
         table += '&nbsp;&nbsp; <span class="link remove_task_item" rel="' + taskItem.id + '">Remove</span>';

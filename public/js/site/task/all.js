@@ -77,9 +77,9 @@ function getTaskTable(tasks){
         table += '<td>' + task.task_type + '</td>';
         table += '<td>' + task.description + '</td>';
         table += '<td>';
-        table += '<a target="_blank" href="' + root + '/task-items/' + task.id + '">Items</a>';
-        table += '<a target="_blank" href="' + root + '/view-task/' + task.id + '">View</a>';
-        table += '&nbsp;&nbsp; <span class="link remove_task" rel="' + task.id + '">Remove</span>';
+        table += '<a target="_blank" href="' + root + '/task-items/' + task.id + '">Items</a>&nbsp;&nbsp;';
+        table += '<a target="_blank" href="' + root + '/view-task/' + task.id + '">View</a>&nbsp;&nbsp;';
+        table += '<span class="link remove_task" rel="' + task.id + '">Remove</span>';
         table += '</td>';
 
         table += '</tr>';

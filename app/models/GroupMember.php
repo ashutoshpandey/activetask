@@ -15,4 +15,9 @@ class GroupMember extends Eloquent {
     {
         return $this->belongsTo('UserGroup');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
 }

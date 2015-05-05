@@ -6,7 +6,7 @@
 
     @include('includes.common-top-js')
     {{HTML::script(asset("/public/js/jquery.dataTables.min.js"))}}
-    {{HTML::script(asset("/public/js/site/group/all.js"))}}
+    {{HTML::script(asset("/public/js/site/user/new-member-requests.js"))}}
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 
         <div class="row">
 
-            <div id='group-list'></div>
+            <div id='requestlist'></div>
 
         </div>
 

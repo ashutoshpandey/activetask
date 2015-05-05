@@ -8,7 +8,7 @@ class GroupController extends BaseController {
 
     public function save()
     {
-        $user_id = Input::get('user');
+        $user_id = Session::get('user');
 
         $name = Input::get('name');
 
@@ -76,22 +76,6 @@ class GroupController extends BaseController {
         $userGroups = UserGroup::where('status', '=', 'active')->get();
 
         return $userGroups;
-    }
-
-    public function allGroupMembers()
-    {
-        $group_id = Session::get('group_id');
-
-        if(isset($group_id)){
-            $groupMembers = GroupMember::where('status', '=', 'active')->where('group_id', '=', $group_id)->get();
-
-            if(isset($groupMembers) && count($groupMembers)>0)
-                return $groupMembers;
-            else
-                return array();
-        }
-        else
-            return array();
     }
 
     public function removeGroup($id)
@@ -167,4 +151,73 @@ class GroupController extends BaseController {
         else
             echo 'invalid';
     }
+
+    public function groupMembers($id){
+
+        $group = UserGroup::find($id);
+
+        if(isset($group)){
+
+            Session::put('member_group_id', $id);
+
+            $groupMembers = GroupMember::where('group_id', '=', $id)->where('status', '=', 'active')->get();
+
+            $found = isset($groupMembers) && count($groupMembers)>0;
+
+            return View::make('group.group-members')->with('found', $found);
+        }
+        else{
+            return View::make('group.group-members')->with('found', false);
+        }
+    }
+
+    public function allGroupMembers()
+    {
+        $group_id = Session::get('member_group_id');
+
+        if(isset($group_id)){
+            $groupMembers = GroupMember::where('status', '=', 'active')->where('group_id', '=', $group_id)->with('user')->get();
+
+            if(isset($groupMembers) && count($groupMembers)>0)
+                return $groupMembers;
+            else
+                return array();
+        }
+        else
+            return array();
+    }
+
+    public function saveGroupMember()
+    {
+        $group_id = Session::get('member_group_id');            // the group in which to add member
+
+        $member_id = Input::get('id');
+
+        $groupMember = new GroupMember();
+
+        $groupMember->user_id = $member_id;
+        $groupMember->group_id = $group_id;
+        $groupMember->status = 'pending';
+
+        $groupMember->save();
+
+        echo 'created';
+    }
+
+/************************** json methods ***************************/
+
+    public function dataAllGroupMembers($id)
+    {
+        if(isset($id)){
+            $groupMembers = GroupMember::where('status', '=', 'active')->where('group_id', '=', $id)->get();
+
+            if(isset($groupMembers) && count($groupMembers)>0)
+                return $groupMembers;
+            else
+                return array();
+        }
+        else
+            return array();
+    }
+
 }

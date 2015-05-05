@@ -1,24 +1,39 @@
 <?php
 
+/**************** static methods ******************/
+Route::get('/', 'HomeController@home');
+/**************** static methods ******************/
+
+
 /**************** user methods ******************/
 
 Route::get('/user-section', 'UserController@userSection');
+Route::get('/find-group-member-by-email', 'UserController@findGroupMemberByEmail');
+Route::get('/count-member-requests', 'UserController@memberRequestCount');
+Route::get('/new-member-requests', 'UserController@newMemberRequests');
+Route::get('/data-new-member-requests', 'UserController@dataNewMemberRequests');
 
 /**************** user methods ******************/
 
 /**************** authentication methods ******************/
 
-Route::get('/login', 'AuthenticationController@create');
+Route::post('/is-valid-admin', 'AuthenticationController@isValidAdmin');
+
 Route::get('/register', 'AuthenticationController@register');
 Route::post('/save-user', 'AuthenticationController@saveUser');
 Route::get('/registered', 'AuthenticationController@registered');
-Route::get('/is-valid-user', 'AuthenticationController@update');
+
+Route::get('/login', 'AuthenticationController@login');
+Route::post('/is-valid-user', 'AuthenticationController@isValidUser');
 Route::get('/is-duplicate-user', 'AuthenticationController@remove');
+
 Route::get('/password-recovery', 'AuthenticationController@passwordRecovery');
 Route::get('/password-sent', 'AuthenticationController@passwordSent');
-Route::get('/is-valid-admin', 'AuthenticationController@isValidAdmin');
+
 Route::get('/activate-account/{code}', 'AuthenticationController@activateAccount');
 Route::get('/account-activated', 'AuthenticationController@accountActivated');
+
+Route::get('/logout', 'AuthenticationController@logout');
 
 /**************** authentication methods ******************/
 
@@ -52,12 +67,13 @@ Route::post('/remove-groups', 'GroupController@removeGroups');
 Route::get('/all-groups', 'GroupController@all');
 
 Route::get('/group-members/{id}', 'GroupController@groupMembers');
-Route::post('/save-group-member', 'GroupController@saveGroupMember');
+Route::get('/save-group-member', 'GroupController@saveGroupMember');
 Route::get('/remove-group-member/{id}', 'GroupController@removeGroupMember');
 Route::post('/remove-group-members', 'GroupController@removeGroupMembers');
 Route::get('/all-group-members', 'GroupController@allGroupMembers');
 
-Route::get('/data-all-groups', 'GroupController@allGroups');
-Route::get('/data-all-group-members', 'GroupController@allGroupMembers');
+Route::get('/data-all-groups', 'GroupController@dataAllGroups');
+Route::get('/data-all-group-members', 'GroupController@dataAllGroupMembers');
 
-/**************** task methods ******************/
+/**************** group methods ******************/
+
