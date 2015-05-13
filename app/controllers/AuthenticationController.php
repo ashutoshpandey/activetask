@@ -50,17 +50,18 @@ class AuthenticationController extends BaseController {
         if(isset($user)){
 
             if($user->status=='active'){
+
                 Session::put('user', $user->id);
 
-                echo 'valid';
+                echo json_encode(array('id' => $user->id, 'message' => 'correct'));
             }
             else if($user->status=='pending')
-                echo 'inactive';
+                echo json_encode(array('message' => 'inactive'));
             else if($user->status=='removed')
-                echo 'removed';
+                echo json_encode(array('message' => 'removed'));
         }
         else
-            echo 'wrong';
+            echo json_encode(array('message' => 'wrong'));
 	}
 
     public function isDuplicateUser($email)
@@ -85,7 +86,7 @@ class AuthenticationController extends BaseController {
             $user->password = Input::get('password');
             $user->gender = Input::get('gender');
             $user->country = Input::get('country');
-            $user->activation_code = $this->getActivationCode();
+            $user->activation_code = "AT" . $this->getCurrentTime();
             $user->status = 'pending';
             $user->created_at = date("Y-m-d h:i:s");
             $user->updated_at = date("Y-m-d h:i:s");
@@ -102,11 +103,11 @@ class AuthenticationController extends BaseController {
             echo 'duplicate';
     }
 
-    public function getActivationCode(){
+    public function getCurrentTime(){
         $timeParts = explode(" ",microtime());
         $currentTime = bcadd(($timeParts[0]*1000),bcmul($timeParts[1],1000));
 
-        return "AT" . $currentTime;
+        return $currentTime;
     }
 
     public function registered(){

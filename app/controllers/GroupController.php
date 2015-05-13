@@ -206,18 +206,54 @@ class GroupController extends BaseController {
 
 /************************** json methods ***************************/
 
-    public function dataAllGroupMembers($id)
+    public function dataAllGroups($id)
     {
         if(isset($id)){
-            $groupMembers = GroupMember::where('status', '=', 'active')->where('group_id', '=', $id)->get();
 
-            if(isset($groupMembers) && count($groupMembers)>0)
-                return $groupMembers;
+            $user = User::find($id);
+
+            if(isset($user)){
+                $groups = UserGroup::where('status', '=', 'active')->where('user_id', $id)->get();
+
+                if(isset($groups) && count($groups)>0)
+                    return array('message' => 'found', 'groups' => $groups->toArray());
+                else
+                    return array('message' => 'empty');
+            }
             else
-                return array();
+                return array('message' => 'invalid');
         }
         else
             return array();
     }
 
+    public function dataAllGroupMembers($groupId)
+    {
+        if(isset($groupId)){
+            $group = UserGroup::find($groupId);
+
+            if(isset($group)){
+                $groupMembers = GroupMember::where('status', '=', 'active')->where('group_id', '=', $groupId)->with('userGroup')->get();
+
+                if(isset($groupMembers) && count($groupMembers)>0){
+
+                    $resultArray = array();
+
+                    foreach($groupMembers as $groupMember){
+                        $user = User::find($groupMember->user_id);
+
+                        if(isset($user)){
+                            $resultArray[] = array('id' => $groupMember->id, 'name' => $user->first_name . ' ' . $user->last_name);
+                        }
+                    }
+
+                    return array('message' => 'found', 'groupMembers' => $resultArray);
+                }
+                else
+                    return array('message' => 'empty');
+            }
+        }
+        else
+            return array();
+    }
 }

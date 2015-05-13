@@ -12,13 +12,13 @@ function checkLogin(){
         var data = $("#frmlogin").serialize();
 
 
-        ajaxCall(root + '/is-valid-user', 'post', data, loginResult);
+        jsonCall(root + '/is-valid-user', 'post', data, loginResult);
     }
 }
 
 function loginResult(result){
 
-    if(result=='valid')
+    if(result.message=='correct')
         window.location.replace(root + '/user-section');
     else if(result=='wrong')
         $('.message').html('Invalid email or password');

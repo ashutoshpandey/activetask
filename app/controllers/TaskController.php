@@ -179,34 +179,6 @@ class TaskController extends BaseController {
 
     /************************ json data methods ***************************/
 
-    public function allTasks()
-    {
-        $user_id = Session::get('user');
-
-        $tasks = Task::where('status', '=', 'active')->where('user_id', '=', $user_id)->get();
-
-        if(isset($tasks) && count($tasks)>0)
-            return $tasks;
-        else
-            return array();
-    }
-
-    public function allTaskItems()
-    {
-        $task_id = Session::get('task_id');
-
-        if(isset($task_id)){
-            $taskItems = TaskItem::where('status', '=', 'active')->where('task_id', '=', $task_id)->get();
-
-            if(isset($taskItems) && count($taskItems)>0)
-                return $taskItems;
-            else
-                return array();
-        }
-        else
-            return array();
-    }
-
     public function removeTaskItems()
     {
         $ids = Input::get('ids'); // comma separated ids, to be removed
@@ -227,5 +199,50 @@ class TaskController extends BaseController {
         }
         else
             echo 'invalid';
+    }
+
+    /************************ json data methods for app ***************************/
+
+    public function dataAllTasks($userId)
+    {
+        if(isset($userId)){
+
+            $user = User::find($userId);
+
+            if(isset($user)){
+                $tasks = Task::where('status', '=', 'active')->where('user_id', '=', $userId)->get();
+
+                if(isset($tasks) && count($tasks)>0)
+                    return array('message' => 'found', 'tasks' => $tasks->toArray());
+                else
+                    return array('message', 'empty');
+            }
+            else
+                return array('message', 'empty');
+        }
+        else
+            return array('message', 'empty');
+    }
+
+    public function dataAllTaskItems($taskId)
+    {
+        if(isset($taskId)){
+
+            $task = Task::find($taskId);
+
+            if(isset($task)){
+
+                $taskItems = TaskItem::where('status', '=', 'active')->where('task_id', '=', $taskId)->get();
+
+                if(isset($taskItems) && count($taskItems)>0)
+                    return array('message' => 'found', 'taskItems' => $taskItems);
+                else
+                    return array('message' => 'empty');
+            }
+            else
+                return array('message' => 'empty');
+        }
+        else
+            return array('message' => 'empty');
     }
 }
