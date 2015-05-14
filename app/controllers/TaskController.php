@@ -245,4 +245,22 @@ class TaskController extends BaseController {
         else
             return array('message' => 'empty');
     }
+
+    public function dataPendingTasksCount($id)
+    {
+        if(isset($id)){
+
+            $user = User::find($id);
+
+            if(isset($user)){
+                $count = Task::where('status', '=', 'active')->where('user_id', $id)->count();
+
+                return array('count' => $count);
+            }
+            else
+                return array('count' => 0);
+        }
+        else
+            return array();
+    }
 }

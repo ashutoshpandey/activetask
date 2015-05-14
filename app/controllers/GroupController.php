@@ -227,6 +227,24 @@ class GroupController extends BaseController {
             return array();
     }
 
+    public function dataAllGroupsCount($id)
+    {
+        if(isset($id)){
+
+            $user = User::find($id);
+
+            if(isset($user)){
+                $count = UserGroup::where('status', '=', 'active')->where('user_id', $id)->count();
+
+                return array('count' => $count);
+            }
+            else
+                return array('count' => 0);
+        }
+        else
+            return array();
+    }
+
     public function dataAllGroupMembers($groupId)
     {
         if(isset($groupId)){
