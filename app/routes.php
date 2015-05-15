@@ -80,5 +80,6 @@ Route::get('/data-pending-tasks-count/{taskId}', 'TaskController@dataPendingTask
 Route::get('/data-all-groups/{id}', 'GroupController@dataAllGroups');
 Route::get('/data-all-group-members/{groupId}', 'GroupController@dataAllGroupMembers');
 Route::get('/data-all-groups-count/{id}', 'GroupController@dataAllGroupsCount');
+Route::post('/data-remove-group-members/{id}', 'GroupController@dataRemoveGroupMembers');
 /********************** json methods for apps ********************/
 
