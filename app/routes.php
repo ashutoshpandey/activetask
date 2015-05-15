@@ -81,5 +81,10 @@ Route::get('/data-all-groups/{id}', 'GroupController@dataAllGroups');
 Route::get('/data-all-group-members/{groupId}', 'GroupController@dataAllGroupMembers');
 Route::get('/data-all-groups-count/{id}', 'GroupController@dataAllGroupsCount');
 Route::post('/data-remove-group-members/{id}', 'GroupController@dataRemoveGroupMembers');
+
+Route::get('/data-all-contacts/{id}', 'ContactController@dataAllContacts');
+Route::get('/data-all-contacts-count', 'ContactController@dataAllContactsCount');
+Route::get('/data-remove-contacts', 'ContactController@dataRemoveContacts');
+Route::post('/data-add-contact', 'ContactController@dataAddContact');
 /********************** json methods for apps ********************/
 
