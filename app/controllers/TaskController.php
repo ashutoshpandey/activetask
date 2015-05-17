@@ -263,4 +263,62 @@ class TaskController extends BaseController {
         else
             return array();
     }
+
+    public function dataSaveTask()
+    {
+        $user_id = Input::get('user_id');
+        $name = Input::get('name');
+        $task_type = Input::get('task_type');
+        $assigned_to = Input::get('assigned_to');
+        $assigned_ids = Input::get('assigned_ids');
+        $description = Input::get('description');
+        $others_can_add = 'n'; //Input::get('others_can_add');
+        $start_date = Input::get('start_date');
+        $end_date = Input::get('end_date');
+
+        $task = new Task();
+
+        $task->name = $name;
+        $task->user_id = $user_id;
+        $task->task_type = $task_type;
+        $task->description = $description;
+        $task->others_can_add = $others_can_add;
+        $task->start_date = date('Y-m-d h:i:s', strtotime($start_date));
+        $task->end_date = date('Y-m-d h:i:s', strtotime($end_date));
+        $task->status = 'active';
+
+        $task->save();
+
+        if($assigned_to=="group"){
+            $taskAssigned = new TaskAssigned();
+
+            $taskAssigned->task_id = $task->id;
+            $taskAssigned->status = 'active';
+            $taskAssigned->assign_type = $assigned_to;
+            $taskAssigned->group_id = $assigned_ids;
+
+            $taskAssigned->save();
+        }
+        else if($assigned_to=="contact"){
+
+            $ar = explode(',', $assigned_ids);
+
+            if(isset($ar) && count($ar)>0){
+
+                foreach($ar as $id){
+                    $taskAssigned = new TaskAssigned();
+
+                    $taskAssigned->task_id = $task->id;
+                    $taskAssigned->status = 'active';
+                    $taskAssigned->assign_type = $assigned_to;
+                    $taskAssigned->contact_id = $id;
+
+                    $taskAssigned->save();
+                }
+            }
+        }
+
+
+        echo 'created';
+    }
 }

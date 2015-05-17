@@ -202,6 +202,37 @@ class GroupController extends BaseController
 
     /************************** json methods ***************************/
 
+    public function dataSaveGroup()
+    {
+        $user_id = Input::get('userId');
+        if (isset($user_id)) {
+
+            $user = User::find($user_id);
+
+            if (isset($user)) {
+                $name = Input::get('name');
+
+                $userGroup = UserGroup::where('name', '=', $name)->where('user_id', '=', $user_id)->first();
+
+                if(isset($userGroup))
+                    echo 'duplicate';
+                else{
+                    $userGroup = new UserGroup();
+
+                    $userGroup->name = $name;
+                    $userGroup->user_id = $user_id;
+                    $userGroup->status = 'active';
+
+                    $userGroup->save();
+
+                    echo 'created';
+                }
+            }
+        }
+        else
+            echo 'invalid session';
+    }
+
     public function dataAllGroups($id)
     {
         if (isset($id)) {

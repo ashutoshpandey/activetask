@@ -73,18 +73,22 @@ Route::get('/all-group-members', 'GroupController@allGroupMembers');
 
 
 /********************** json methods for apps ********************/
+
 Route::get('/data-all-tasks/{id}', 'TaskController@dataAllTasks');
 Route::get('/data-all-task-items/{taskId}', 'TaskController@dataAllTaskItems');
 Route::get('/data-pending-tasks-count/{taskId}', 'TaskController@dataPendingTasksCount');
+Route::post('/data-save-task', 'TaskController@dataSaveTask');
 
 Route::get('/data-all-groups/{id}', 'GroupController@dataAllGroups');
 Route::get('/data-all-group-members/{groupId}', 'GroupController@dataAllGroupMembers');
 Route::get('/data-all-groups-count/{id}', 'GroupController@dataAllGroupsCount');
 Route::post('/data-remove-group-members/{id}', 'GroupController@dataRemoveGroupMembers');
+Route::post('/data-save-group', 'GroupController@dataSaveGroup');
 
 Route::get('/data-all-contacts/{id}', 'ContactController@dataAllContacts');
 Route::get('/data-all-contacts-count', 'ContactController@dataAllContactsCount');
 Route::get('/data-remove-contacts', 'ContactController@dataRemoveContacts');
 Route::post('/data-add-contact', 'ContactController@dataAddContact');
+
 /********************** json methods for apps ********************/
 

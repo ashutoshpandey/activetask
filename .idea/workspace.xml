@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/activetask.sql" afterPath="$PROJECT_DIR$/app/database/activetask.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/GroupController.php" afterPath="$PROJECT_DIR$/app/controllers/GroupController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/TaskController.php" afterPath="$PROJECT_DIR$/app/controllers/TaskController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -70,7 +71,7 @@
     <file path="/2015_05_03_051038_create_usergroup_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430630587062" ignored="false" />
     <file path="/2015_05_03_052354_create_groupmembers_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430630646638" ignored="false" />
     <file path="/2015_05_03_045437_create_taskcomment_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430630757068" ignored="false" />
-    <file path="/TaskController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431573676766" ignored="false" />
+    <file path="/TaskController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431832970799" ignored="false" />
     <file path="/routes.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431710405736" ignored="false" />
     <file path="/2015_05_03_045229_create_tasks_table.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430633562264" ignored="false" />
     <file path="/AuthenticationController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431276435841" ignored="false" />
@@ -95,10 +96,10 @@
     <file path="/usermail.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430652903458" ignored="false" />
     <file path="/registered.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430664783686" ignored="false" />
     <file path="/account-activated.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430665798603" ignored="false" />
-    <file path="/Dummy.txt" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431710219545" ignored="false" />
+    <file path="/Dummy.txt" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431831940064" ignored="false" />
     <file path="/task-items.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430668731363" ignored="false" />
     <file path="/task-items.js" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430758421225" ignored="false" />
-    <file path="/GroupController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431663947370" ignored="false" />
+    <file path="/GroupController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431743330213" ignored="false" />
     <file path="/group-members.js" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430792297640" ignored="false" />
     <file path="/User.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430704660151" ignored="false" />
     <file path="/UserGroup.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430705528761" ignored="false" />
@@ -113,6 +114,8 @@
     <file path="/new-member-requests.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430794201105" ignored="false" />
     <file path="/new-member-requests.js" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430794915516" ignored="false" />
     <file path="/ContactController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431711284255" ignored="false" />
+    <file path="/Contact.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431754723547" ignored="false" />
+    <file path="/TaskAssigned.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431833741231" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,16 +138,25 @@
       <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="66" selection-start="3344" selection-end="3344" vertical-scroll-proportion="-17.066668">
+            <state line="79" column="56" selection-start="3505" selection-end="3505" vertical-scroll-proportion="-12.866667">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ContactController.php">
+      <file leaf-file-name="TaskController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/TaskController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="548" selection-end="548" vertical-scroll-proportion="0.15235792">
+            <state line="288" column="0" selection-start="7585" selection-end="7585" vertical-scroll-proportion="0.18742442">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="laravel.log" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/storage/logs/laravel.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -168,8 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/js/site/common.js" />
-        <option value="$PROJECT_DIR$/app/views/authentication/login.blade.php" />
         <option value="$PROJECT_DIR$/app/views/user/user-section.blade.php" />
         <option value="$PROJECT_DIR$/public/js/site/user/user-section.js" />
         <option value="$PROJECT_DIR$/app/views/user/new-member-requests.blade.php" />
@@ -179,11 +189,13 @@
         <option value="$PROJECT_DIR$/app/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/public/js/site/user/login.js" />
         <option value="$PROJECT_DIR$/app/controllers/AuthenticationController.php" />
-        <option value="$PROJECT_DIR$/app/storage/logs/laravel.log" />
-        <option value="$PROJECT_DIR$/app/controllers/TaskController.php" />
-        <option value="$PROJECT_DIR$/app/controllers/GroupController.php" />
         <option value="$PROJECT_DIR$/app/controllers/ContactController.php" />
+        <option value="$PROJECT_DIR$/app/controllers/GroupController.php" />
+        <option value="$PROJECT_DIR$/app/models/Contact.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/controllers/TaskController.php" />
+        <option value="$PROJECT_DIR$/app/models/TaskAssigned.php" />
+        <option value="$PROJECT_DIR$/app/storage/logs/laravel.log" />
       </list>
     </option>
   </component>
@@ -275,7 +287,83 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activetask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activetask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activetask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activetask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activetask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activetask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activetask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activetask" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -295,11 +383,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp1.8\htdocs\activetask\app\models" />
       <recent name="C:\xampp1.8\htdocs\activetask\app\database" />
       <recent name="C:\xampp1.8\htdocs\activetask\app\controllers" />
       <recent name="C:\xampp1.8\htdocs\activetask\public\js\site\user" />
       <recent name="C:\xampp1.8\htdocs\activetask\app\views\user" />
-      <recent name="C:\xampp1.8\htdocs\activetask\public\js\site\group" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp1.8\htdocs\activetask\public\js\site\user" />
@@ -349,7 +437,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28311965" sideWeight="0.6700565" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21100427" sideWeight="0.6700565" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -425,16 +513,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/js/site/group/group-members.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/site/group/all.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="116" selection-start="2028" selection-end="2028" vertical-scroll-proportion="0.62677723" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/site/task/task-items.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="112" column="52" selection-start="2806" selection-end="2806" vertical-scroll-proportion="0.6126021" />
@@ -465,11 +543,6 @@
         <state line="18" column="29" selection-start="317" selection-end="317" vertical-scroll-proportion="0.4410735" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/storage/logs/laravel.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/AuthenticationController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="13" selection-start="1372" selection-end="1372" vertical-scroll-proportion="0.025392987" />
@@ -480,35 +553,50 @@
         <state line="11" column="30" selection-start="182" selection-end="182" vertical-scroll-proportion="0.27932286" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/TaskController.php">
+    <entry file="file://$PROJECT_DIR$/app/database/activetask.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="247" column="0" selection-start="6287" selection-end="6287" vertical-scroll-proportion="0.49214026" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ContactController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="548" selection-end="548" vertical-scroll-proportion="-0.7" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/GroupController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="220" column="46" selection-start="5192" selection-end="5192" vertical-scroll-proportion="0.13333334">
+        <state line="209" column="41" selection-start="4749" selection-end="4749" vertical-scroll-proportion="0.16203144" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Contact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="58" selection-start="205" selection-end="205" vertical-scroll-proportion="0.30471584" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/TaskAssigned.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="1" selection-start="357" selection-end="357" vertical-scroll-proportion="0.5586457">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="66" selection-start="3344" selection-end="3344" vertical-scroll-proportion="-17.066668">
+        <state line="79" column="56" selection-start="3505" selection-end="3505" vertical-scroll-proportion="-12.866667">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/activetask.sql">
+    <entry file="file://$PROJECT_DIR$/app/storage/logs/laravel.log">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ContactController.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/TaskController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="548" selection-end="548" vertical-scroll-proportion="0.15235792">
+        <state line="288" column="0" selection-start="7585" selection-end="7585" vertical-scroll-proportion="0.18742442">
           <folding />
         </state>
       </provider>
