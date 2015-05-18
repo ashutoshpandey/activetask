@@ -48,6 +48,27 @@ class ContactController extends BaseController
             return array('message' => 'invalid');
     }
 
+    public function dataFindContactByEmail()
+    {
+        $userId = Input::get('userId');
+        $email = Input::get('email');
+
+        if (isset($email) && isset($userId)) {
+            $user = User::where('email', '=', $email)->first();
+
+            if (isset($user)){
+                if($user->id==$userId)
+                    return array('message' => 'same');
+                else
+                    return array('message' => 'found', 'user' => $user);
+            }
+            else
+                return array('message' => 'n/a');
+        }
+        else
+            return array('message' => 'invalid');
+    }
+
     public function dataRemoveContacts()
     {
         $userId = Input::get('userId');
