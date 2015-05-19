@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ContactController.php" afterPath="$PROJECT_DIR$/app/controllers/ContactController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="med.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,7 +94,7 @@
     <file path="/usermail.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430652903458" ignored="false" />
     <file path="/registered.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430664783686" ignored="false" />
     <file path="/account-activated.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430665798603" ignored="false" />
-    <file path="/Dummy.txt" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431922387648" ignored="false" />
+    <file path="/Dummy.txt" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431997816071" ignored="false" />
     <file path="/task-items.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430668731363" ignored="false" />
     <file path="/task-items.js" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430758421225" ignored="false" />
     <file path="/GroupController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431743330213" ignored="false" />
@@ -111,7 +111,7 @@
     <file path="/user-section.js" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430794036387" ignored="false" />
     <file path="/new-member-requests.blade.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430794201105" ignored="false" />
     <file path="/new-member-requests.js" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1430794915516" ignored="false" />
-    <file path="/ContactController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431923730657" ignored="false" />
+    <file path="/ContactController.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1432000621682" ignored="false" />
     <file path="/Contact.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431754723547" ignored="false" />
     <file path="/TaskAssigned.php" changelist="8d19e4be-9b2b-48c1-b6ad-85ffc9be98ec" time="1431833741231" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -136,7 +136,7 @@
       <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="35" selection-start="4249" selection-end="4249" vertical-scroll-proportion="-21.966667">
+            <state line="90" column="0" selection-start="4144" selection-end="4144" vertical-scroll-proportion="-20.566668">
               <folding />
             </state>
           </provider>
@@ -145,7 +145,16 @@
       <file leaf-file-name="ContactController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/ContactController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="59" selection-start="1923" selection-end="1923" vertical-scroll-proportion="0.5683192">
+            <state line="18" column="0" selection-start="535" selection-end="535" vertical-scroll-proportion="0.45707375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="laravel.log" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/storage/logs/laravel.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -182,8 +191,8 @@
         <option value="$PROJECT_DIR$/app/models/Contact.php" />
         <option value="$PROJECT_DIR$/app/controllers/TaskController.php" />
         <option value="$PROJECT_DIR$/app/models/TaskAssigned.php" />
-        <option value="$PROJECT_DIR$/app/storage/logs/laravel.log" />
         <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/storage/logs/laravel.log" />
         <option value="$PROJECT_DIR$/app/controllers/ContactController.php" />
       </list>
     </option>
@@ -230,7 +239,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -359,6 +367,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -367,8 +376,8 @@
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="C:/cakephp-cakephp-4b9e390" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -426,7 +435,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21367522" sideWeight="0.6700565" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21634616" sideWeight="0.6700565" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -564,14 +573,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/TaskController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="288" column="0" selection-start="7585" selection-end="7585" vertical-scroll-proportion="-0.7">
-          <folding />
-        </state>
+        <state line="288" column="0" selection-start="7585" selection-end="7585" vertical-scroll-proportion="-0.7" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="35" selection-start="4249" selection-end="4249" vertical-scroll-proportion="-21.966667">
+        <state line="90" column="0" selection-start="4144" selection-end="4144" vertical-scroll-proportion="-20.566668">
           <folding />
         </state>
       </provider>
@@ -585,7 +592,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/ContactController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="59" selection-start="1923" selection-end="1923" vertical-scroll-proportion="0.5683192">
+        <state line="18" column="0" selection-start="535" selection-end="535" vertical-scroll-proportion="0.45707375">
           <folding />
         </state>
       </provider>

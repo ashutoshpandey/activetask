@@ -4,6 +4,35 @@ class ContactController extends BaseController
 {
 /************************** json methods ***************************/
 
+    public function dataAddContact()
+    {
+        $added_by_user_id = Input::get('added_by_user_id');
+        $user_id = Input::get('user_id');
+
+        if (isset($user_id) && isset($added_by_user_id)) {
+
+            $user = User::find($user_id);
+            $added_by_user = User::find($added_by_user_id);
+
+            if (isset($user) && isset($added_by_user)) {
+                $contact = new Contact();
+
+                $contact->user_id = $user_id;
+                $contact->added_by_user_id = $added_by_user_id;
+                $contact->update_type = 'added';
+                $contact->status = 'active';
+
+                $contact->save();
+
+                return array('message' => 'done');
+            }
+            else
+                return array('message' => 'invalid');
+        }
+        else
+            return array('message' => 'invalid');
+    }
+
     public function dataAllContactsCount($id)
     {
         if (isset($id)) {
@@ -59,8 +88,14 @@ class ContactController extends BaseController
             if (isset($user)){
                 if($user->id==$userId)
                     return array('message' => 'same');
-                else
-                    return array('message' => 'found', 'user' => $user);
+                else{
+                    $contact = Contact::where('user_id', '=', $user->id)->where('added_by_user_id', '=', $userId)->first();
+
+                    if(isset($contact))
+                        return array('message' => 'exists', 'user' => $user->toArray());
+                    else
+                        return array('message' => 'found', 'user' => $user->toArray());
+                }
             }
             else
                 return array('message' => 'n/a');
