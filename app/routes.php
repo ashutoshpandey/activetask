@@ -75,6 +75,7 @@ Route::get('/all-group-members', 'GroupController@allGroupMembers');
 /********************** json methods for apps ********************/
 
 Route::get('/data-all-tasks/{id}', 'TaskController@dataAllTasks');
+Route::get('/data-all-assigned-tasks/{id}', 'TaskController@dataAllAssignedTasks');
 Route::get('/data-all-task-items/{taskId}', 'TaskController@dataAllTaskItems');
 Route::get('/data-pending-tasks-count/{taskId}', 'TaskController@dataPendingTasksCount');
 Route::post('/data-save-task', 'TaskController@dataSaveTask');

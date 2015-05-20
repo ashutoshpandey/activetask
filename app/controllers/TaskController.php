@@ -218,7 +218,28 @@ class TaskController extends BaseController {
                     return array('message', 'empty');
             }
             else
-                return array('message', 'empty');
+                return array('message' => 'empty');
+        }
+        else
+            return array('message' => 'empty');
+    }
+
+    public function dataAllAssignedTasks($userId)
+    {
+        if(isset($userId)){
+
+            $user = User::find($userId);
+
+            if(isset($user)){
+                $tasks = TaskAssigned::where('status', '=', 'active')->where('contact_id', '=', $userId)->where('assign_type', '=', 'contact')->with('task')->get();
+
+                if(isset($data) && count($data)>0)
+                    return array('message' => 'found', 'tasks' => $tasks->toArray());
+                else
+                    return array('message' => 'empty');
+            }
+            else
+                return array('message' => 'empty');
         }
         else
             return array('message', 'empty');
@@ -269,8 +290,6 @@ class TaskController extends BaseController {
         $user_id = Input::get('user_id');
         $name = Input::get('name');
         $task_type = Input::get('task_type');
-        $assigned_to = Input::get('assigned_to');
-        $assigned_ids = Input::get('assigned_ids');
         $description = Input::get('description');
         $others_can_add = 'n'; //Input::get('others_can_add');
         $start_date = Input::get('start_date');
@@ -289,10 +308,34 @@ class TaskController extends BaseController {
 
         $task->save();
 
+        echo 'created';
+    }
+
+    public function dataSaveTaskItem()
+    {
+        $user_id = Input::get('user_id');
+        $task_id = Input::get('task_id');
+        $assigned_to = Input::get('assigned_to');
+        $assigned_ids = Input::get('assigned_ids');
+        $description = Input::get('description');
+        $start_date = Input::get('start_date');
+        $end_date = Input::get('end_date');
+
+        $taskItem = new TaskItem();
+
+        $taskItem->task_id = $task_id;
+        $taskItem->user_id = $user_id;
+        $taskItem->description = $description;
+        $taskItem->start_date = date('Y-m-d h:i:s', strtotime($start_date));
+        $taskItem->end_date = date('Y-m-d h:i:s', strtotime($end_date));
+        $taskItem->status = 'active';
+
+        $taskItem->save();
+
         if($assigned_to=="group"){
             $taskAssigned = new TaskAssigned();
 
-            $taskAssigned->task_id = $task->id;
+            $taskAssigned->task_item_id = $taskItem->id;
             $taskAssigned->status = 'active';
             $taskAssigned->assign_type = $assigned_to;
             $taskAssigned->group_id = $assigned_ids;

@@ -20,4 +20,9 @@ class TaskAssigned extends Eloquent {
     {
         return $this->belongsTo('Contact');
     }
+
+    public function task()
+    {
+        return $this->belongsTo('Contact');
+    }
 }
