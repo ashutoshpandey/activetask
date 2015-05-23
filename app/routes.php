@@ -77,8 +77,11 @@ Route::get('/all-group-members', 'GroupController@allGroupMembers');
 Route::get('/data-all-tasks/{id}', 'TaskController@dataAllTasks');
 Route::get('/data-all-assigned-tasks/{id}', 'TaskController@dataAllAssignedTasks');
 Route::get('/data-all-task-items/{taskId}', 'TaskController@dataAllTaskItems');
+Route::post('/data-all-assigned-task-items', 'TaskController@dataAllAssignedTaskItems');
 Route::get('/data-pending-tasks-count/{taskId}', 'TaskController@dataPendingTasksCount');
 Route::post('/data-save-task', 'TaskController@dataSaveTask');
+Route::post('/data-save-task-item', 'TaskController@dataSaveTaskItem');
+Route::post('/data-task-update-message', 'TaskController@dataTaskUpdateMessage');
 
 Route::get('/data-all-groups/{id}', 'GroupController@dataAllGroups');
 Route::get('/data-all-group-members/{groupId}', 'GroupController@dataAllGroupMembers');
