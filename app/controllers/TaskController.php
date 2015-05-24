@@ -210,12 +210,41 @@ class TaskController extends BaseController {
             $user = User::find($userId);
 
             if(isset($user)){
-                $tasks = Task::where('status', '=', 'active')->where('user_id', '=', $userId)->get();
+                $tasks = Task::where('user_id', '=', $userId)->get();
 
-                if(isset($tasks) && count($tasks)>0)
-                    return array('message' => 'found', 'tasks' => $tasks->toArray());
+                if(isset($tasks) && count($tasks)>0){
+
+                    $tasksArray = array();
+
+                    $pendingCount = 0;
+
+                    foreach($tasks as $task){
+
+                        $total = TaskItem::whereIn('status', array('active','complete','failed'))->where('user_id', '=', $userId)->count();
+                        $completed = TaskItem::whereIn('status', array('complete','failed'))->where('user_id', '=', $userId)->count();
+
+                        $tasksArray[] = array(
+                            "id" => $task->id,
+                            "user_id" => $task->user_id,
+                            "name" => $task->name,
+                            "task_type" => $task->task_type,
+                            "others_can_add" => $task->others_can_add,
+                            "description" => $task->description,
+                            "start_date" => $task->start_date,
+                            "end_date" => $task->end_date,
+                            "status" => $task->status,
+                            "total" => $total,
+                            "completed" => $completed
+                        );
+
+                        if($total!=$completed)
+                            $pendingCount++;
+                    }
+
+                    return array('message' => 'found', 'tasks' => $tasksArray, 'pending' => $pendingCount);
+                }
                 else
-                    return array('message', 'empty');
+                    return array('message' => 'empty');
             }
             else
                 return array('message' => 'empty');
@@ -234,7 +263,7 @@ class TaskController extends BaseController {
 //                $tasks = TaskAssigned::where('status', '=', 'active')->where('user_id', '=', $userId)->where('assign_type', '=', 'contact')->with('task')->get();
                 $tasks = array();
 
-                $contactQuery = "select id,name,description,start_date,end_date from tasks where id in(
+                $contactQuery = "select id,name,description,start_date,end_date,status from tasks where id in(
                                     select task_id from task_items where assigned_to='contact' and id in(
                                         select task_item_id from task_assigned where contact_id in(
                                             select contact_id from contacts where user_id=$userId
@@ -242,13 +271,15 @@ class TaskController extends BaseController {
                                     )
                               )";
 
-                $groupQuery = "select id,name,description,start_date,end_date from tasks where id in(
+                $groupQuery = "select id,name,description,start_date,end_date,status from tasks where id in(
                                     select task_id from task_items where assigned_to='group' and id in(
                                         select task_item_id from task_assigned where group_id in(
                                             select group_id from group_members where user_id=$userId
                                         )
                                     )
                               )";
+
+                $pendingCount = 0;
 
                 $tasksContact = DB::select(DB::raw($contactQuery));
                 if(isset($tasksContact)){
@@ -261,6 +292,9 @@ class TaskController extends BaseController {
                             'start_date' => $task['start_date'],
                             'end_date' => $task['end_date']
                         );
+
+                        if($task['status']=='active')
+                            $pendingCount++;
                     }
                 }
 
@@ -279,7 +313,7 @@ class TaskController extends BaseController {
                 }
 
                 if(isset($tasks) && count($tasks)>0)
-                    return array('message' => 'found', 'tasks' => $tasks);
+                    return array('message' => 'found', 'tasks' => $tasks, 'pending' => $pendingCount);
                 else
                     return array('message' => 'empty');
             }
@@ -300,8 +334,57 @@ class TaskController extends BaseController {
 
                 $taskItems = TaskItem::where('status', '=', 'active')->where('task_id', '=', $taskId)->get();
 
-                if(isset($taskItems) && count($taskItems)>0)
-                    return array('message' => 'found', 'taskItems' => $taskItems->toArray());
+                if(isset($taskItems) && count($taskItems)>0){
+
+                    $arTaskItems = array();
+
+                    foreach($taskItems as $taskItem){
+
+                        $taskItemId = $taskItem->id;
+
+                        $assigned_name = array();
+
+                        if($taskItem->assigned_to=='group'){
+                            $taskAssigned = TaskAssigned::where('task_item_id', '=', $taskItemId)->where('status', '=', 'active')->first();
+
+                            if(isset($taskAssigned)){
+                                $group = UserGroup::find($taskAssigned->group_id);
+
+                                if(isset($group))
+                                    $assigned_name[] = $group->name;
+                            }
+                        }
+                        else if($taskItem->assigned_to=='contact'){
+
+                            $tasksAssigned = TaskAssigned::where('task_item_id', '=', $taskItemId)->where('status', '=', 'active')->get();
+
+                            if(isset($tasksAssigned)){
+
+                                foreach($tasksAssigned as $taskAssigned){
+                                    $contact = Contact::find($taskAssigned->contact_id);
+
+                                    if(isset($contact)){
+                                        $assigned_name[] = $contact->user->first_name . ' ' . $contact->user->last_name;
+                                    }
+                                }
+                            }
+                        }
+
+                        $arTaskItems[] = array(
+                            'id' => $taskItem->id,
+                            'task_id' => $taskItem->task_id,
+                            'user_id' => $taskItem->user_id,
+                            'description' => $taskItem->description,
+                            'assigned_to' => $taskItem->assigned_to,
+                            'start_date' => $taskItem->start_date,
+                            'end_date' => $taskItem->end_date,
+                            'status' => $taskItem->status,
+                            'assigned_name' => implode(',',$assigned_name)
+                        );
+                    }
+
+                    return array('message' => 'found', 'taskItems' => $arTaskItems);
+                }
                 else
                     return array('message' => 'empty');
             }
@@ -324,11 +407,10 @@ class TaskController extends BaseController {
 
             if(isset($task) && isset($user)){
 
-                $contactQuery = "select id,description,start_date,end_date from task_items where id in(
-                                        select task_item_id from task_assigned where contact_id in(
-                                            select contact_id from contacts where user_id=$userId
-                                        )
-                              )";
+                $contactQuery = "select task_items.id as id,description,start_date,end_date,contact_id from task_items
+                                 inner join task_assigned on task_items.id=task_assigned.task_item_id
+                                 where task_items.task_id=$taskId and
+                                 task_assigned.contact_id=(select id from contacts where user_id=$userId)";
 
                 $groupQuery = "select id,description,start_date,end_date from task_items where id in(
                                         select task_item_id from task_assigned where group_id in(
@@ -346,7 +428,8 @@ class TaskController extends BaseController {
                             'id' => $taskItem['id'],
                             'description' => $taskItem['description'],
                             'start_date' => $taskItem['start_date'],
-                            'end_date' => $taskItem['end_date']
+                            'end_date' => $taskItem['end_date'],
+                            'contact_id' => $taskItem['contact_id']
                         );
                     }
                 }
@@ -424,27 +507,49 @@ class TaskController extends BaseController {
 
     public function dataTaskUpdateMessage()
     {
-        $user_id = Input::get('user_id');
+        $contact_id = Input::get('contact_id');
         $message = Input::get('message');
         $type = Input::get('type');
         $task_item_id = Input::get('task_item_id');
 
         $taskComment = new TaskComment();
 
-        $taskComment->user_id = $user_id;
+        $taskComment->contact_id = $contact_id;
         $taskComment->task_item_id = $task_item_id;
         $taskComment->message = $message;
-        $taskComment->status = $type;
+        $taskComment->status = strtolower($type);
 
         $taskComment->save();
 
-        if($type=='Complete' || $type=='Failed'){
-            
-            $taskItem = TaskItem::find($task_item_id);
+        // update task assigned
+        if($type=='complete' || $type=='failed'){
 
-            $taskItem->status = $type;
+            $contact = Contact::where('id', '=', $contact_id)->first();
 
-            $taskItem->save();
+            if(isset($contact)){
+
+                $taskAssigned = TaskAssigned::where('task_item_id','=',$task_item_id)->where('contact_id','=',$contact_id)->first();
+
+                if(isset($taskAssigned)){
+                    $taskAssigned->status = $type;
+
+                    $taskAssigned->save();
+
+                    // update task item if all task assigned are completed
+                    $activeCount = $taskAssigned::where('task_item_id','=',$task_item_id)->where('status','=','active')->count();
+
+                    if(isset($activeCount) && $activeCount==0){
+                        $taskItem = TaskItem::find($task_item_id);
+
+                        if(isset($taskItem)){
+
+                            $taskItem->status = 'complete';
+
+                            $taskItem->save();
+                        }
+                    }
+                }
+            }
         }
 
         echo 'saved';

@@ -65,7 +65,11 @@ class ContactController extends BaseController
                         $user = User::find($contact->user_id);
 
                         if (isset($user)) {
-                            $resultArray[] = array('id' => $user->id, 'name' => $user->first_name . ' ' . $user->last_name);
+                            $resultArray[] = array(
+                                'id' => $contact->id,
+                                'user_id' => $user->id,
+                                'name' => $user->first_name . ' ' . $user->last_name
+                            );
                         }
                     }
 

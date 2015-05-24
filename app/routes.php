@@ -83,6 +83,8 @@ Route::post('/data-save-task', 'TaskController@dataSaveTask');
 Route::post('/data-save-task-item', 'TaskController@dataSaveTaskItem');
 Route::post('/data-task-update-message', 'TaskController@dataTaskUpdateMessage');
 
+Route::post('/data-save-user', 'AuthenticationController@dataSaveUser');
+
 Route::get('/data-all-groups/{id}', 'GroupController@dataAllGroups');
 Route::get('/data-all-group-members/{groupId}', 'GroupController@dataAllGroupMembers');
 Route::get('/data-all-groups-count/{id}', 'GroupController@dataAllGroupsCount');
@@ -94,5 +96,5 @@ Route::get('/data-all-contacts-count', 'ContactController@dataAllContactsCount')
 Route::get('/data-remove-contacts', 'ContactController@dataRemoveContacts');
 Route::post('/data-add-contact', 'ContactController@dataAddContact');
 Route::post('/find-contact-by-email', 'ContactController@dataFindContactByEmail');
-/********************** json methods for apps ********************/
 
+/********************** json methods for apps ********************/

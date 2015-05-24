@@ -190,4 +190,38 @@ class AuthenticationController extends BaseController {
 
         return Redirect::to('/');
     }
+
+/*************************** app methods ************************/
+
+    public function dataSaveUser(){
+
+        $email = Input::get('email');
+
+        if($this->isDuplicateUser($email)==="no"){
+
+            $user = new User;
+
+            $user->first_name = Input::get('first_name');
+            $user->last_name = Input::get('last_name');
+            $user->display_name = Input::get('display_name');
+            $user->email = Input::get('email');
+            $user->password = Input::get('password');
+            $user->gender = Input::get('gender');
+            $user->country = Input::get('country');
+            $user->activation_code = "AT" . $this->getCurrentTime();
+            $user->status = 'pending';
+            $user->created_at = date("Y-m-d h:i:s");
+            $user->updated_at = date("Y-m-d h:i:s");
+
+            $user->save();
+
+            Session::put('name', $user->first_name);
+
+            //$this->sendUserEmail($user);
+
+            echo 'created';
+        }
+        else
+            echo 'duplicate';
+    }
 }
